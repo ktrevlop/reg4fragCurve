@@ -1,0 +1,7 @@
+name: reg4fragCurve
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
