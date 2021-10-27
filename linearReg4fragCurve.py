@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 # Enther the threshold (h) of the damage state
 threshold = 0.02;
 # Enter the file names containing the IMs and the EDPs
-im = np.genfromtxt('IM.csv', delimiter=',');
-edp = np.genfromtxt('EDP.csv', delimiter=',');
+im = np.genfromtxt('IM.csv', delimiter=',')
+edp = np.genfromtxt('EDP.csv', delimiter=',')
 
 # # Draw a random sample from the data
 # # Enter the randomization seed. Change it to get a different sample
@@ -32,10 +32,10 @@ edp = np.genfromtxt('EDP.csv', delimiter=',');
 # Enther the minimum and maximum IM value for the for which the fragilit curve
 # will be computed
 minIM4fragCurve = 0.1; # enter a value higher than zero
-maxIM4fragCurve = 9.9;
+maxIM4fragCurve = 9.9
 # Enther the number of points that will be used to discretize the fragility
 # curve
-noPoints4fragCurve = 99;
+noPoints4fragCurve = 99
 
 # A constant step for the IMs is used
 imStep = (maxIM4fragCurve-minIM4fragCurve)/(noPoints4fragCurve-1)
@@ -46,7 +46,7 @@ ims4fragCurve = np.arange(minIM4fragCurve, maxIM4fragCurve+imStep, imStep);
 logIM = np.log(im);
 logEDP = np.log(edp);
 # Adjust a linear model to the data in the log-log space
-p = np.polyfit(logIM, logEDP, 1);
+p = np.polyfit(logIM, logEDP, 1)
 # The linear model
 logEDPlinModel = p[1].copy() + p[0].copy()* logIM.copy();
 # The residuals
@@ -70,8 +70,8 @@ ax1.set_title("Data")
 ax1.legend()
 
 # The median and the dispersion of the fragility curve
-median = np.exp( ( np.log(threshold) - p[1].copy() ) / p[0].copy() );
-dispersion = np.std( epsilon.copy() ) ;
+median = np.exp( ( np.log(threshold) - p[1].copy() ) / p[0].copy() )
+dispersion = np.std( epsilon.copy() ) / p[0].copy()
 # The fragility curve
 fragCurve = norm.cdf( np.log(ims4fragCurve), np.log(median), dispersion);
 
