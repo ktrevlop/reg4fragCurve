@@ -71,7 +71,7 @@ ax1.legend()
 
 # The median and the dispersion of the fragility curve
 median = np.exp( ( np.log(threshold) - p[1].copy() ) / p[0].copy() )
-dispersion = np.std( epsilon.copy() ) / p[0].copy()
+dispersion = np.std( epsilon.copy(), ddof=2 ) / p[0].copy()
 # The fragility curve
 fragCurve = norm.cdf( np.log(ims4fragCurve), np.log(median), dispersion);
 
