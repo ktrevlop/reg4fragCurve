@@ -1,13 +1,26 @@
 # -*- coding: utf-8 -*-
 """
 K. Trevlopoulos
-July 2021
+
+Last update: 28.02.2022
 
 This script computes a fragility curves based on linear regression on a cloud
 of data, which are found in .csv files.
 
 The script was written using Spyder 4.2.5 and Python 3.8.8 as installed by
 Anaconda3-2021.05-Windows-x86_64
+
+DISCLAIMER
+
+This software is made available as a prototype implementation  for the purpose
+of open collaboration and in the hope that it will be useful. It is not
+developed to design standards, nor subject to critical review by professional
+software developers. It is therefore distributed WITHOUT ANY WARRANTY; without
+even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE. See the GNU General Public License for more details:
+https://www.gnu.org/licenses/gpl-3.0.html
+
+The author of the software, assumes no liability for use of the software.
 
 """
 
@@ -71,7 +84,9 @@ ax1.legend()
 
 # The median and the dispersion of the fragility curve
 median = np.exp( ( np.log(threshold) - p[1].copy() ) / p[0].copy() )
+print(median)
 dispersion = np.std( epsilon.copy(), ddof=2 ) / p[0].copy()
+print(dispersion)
 # The fragility curve
 fragCurve = norm.cdf( np.log(ims4fragCurve), np.log(median), dispersion);
 
