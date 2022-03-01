@@ -12,7 +12,7 @@ Anaconda3-2021.05-Windows-x86_64
 
 DISCLAIMER
 
-This software is made available as a prototype implementation  for the purpose
+This software is made available as a prototype implementation for the purpose
 of open collaboration and in the hope that it will be useful. It is not
 developed to design standards, nor subject to critical review by professional
 software developers. It is therefore distributed WITHOUT ANY WARRANTY; without
@@ -20,7 +20,7 @@ even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
 PURPOSE. See the GNU General Public License for more details:
 https://www.gnu.org/licenses/gpl-3.0.html
 
-The author of the software, assumes no liability for use of the software.
+The author of the software assumes no liability for use of the software.
 
 """
 
@@ -28,7 +28,7 @@ import numpy as np
 from scipy.stats import norm
 import matplotlib.pyplot as plt
 
-# Enther the threshold (h) of the damage state
+# Enter the threshold (h) of the damage state
 threshold = 0.02;
 # Enter the file names containing the IMs and the EDPs
 im = np.genfromtxt('IM.csv', delimiter=',')
@@ -42,11 +42,11 @@ edp = np.genfromtxt('EDP.csv', delimiter=',')
 # im=im[rints]
 # edp=edp[rints]
 
-# Enther the minimum and maximum IM value for the for which the fragilit curve
+# Enter the minimum and maximum IM value for the for which the fragilit curve
 # will be computed
 minIM4fragCurve = 0.1; # enter a value higher than zero
 maxIM4fragCurve = 9.9
-# Enther the number of points that will be used to discretize the fragility
+# Enter the number of points that will be used to discretize the fragility
 # curve
 noPoints4fragCurve = 99
 
